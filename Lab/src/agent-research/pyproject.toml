@@ -1,0 +1,39 @@
+[project]
+name = "agent-research"
+version = "0.1.0"
+description = "Tech Research Agent - LangGraph / Python"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph==1.0.9",
+    "langchain-openai==1.1.10",
+    "langchain-community==0.4.1",
+    "fastapi==0.133.1",
+    "uvicorn[standard]==0.41.0",
+    "httpx==0.28.1",
+    "pydantic==2.12.5",
+    "beautifulsoup4==4.14.3",
+    "python-dotenv==1.2.1",
+    "opentelemetry-api==1.40.0",
+    "opentelemetry-sdk==1.40.0",
+    "opentelemetry-instrumentation-fastapi==0.61b0",
+    "opentelemetry-instrumentation-httpx==0.61b0",
+    "opentelemetry-exporter-otlp-proto-grpc==1.40.0",
+    "opentelemetry-instrumentation-openai-v2==2.3b0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "pytest-httpx>=0.34",
+]
+
+[tool.setuptools]
+py-modules = ["main", "agent", "a2a"]
+
+[tool.setuptools.packages.find]
+include = ["tools*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

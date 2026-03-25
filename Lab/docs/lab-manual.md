@@ -100,13 +100,18 @@ Agents communicate via the A2A (Agent-to-Agent) protocol -- each exposes a /.wel
     7. Hit **Register asset**
     8. Repeat for another agent if you'd like
 43. Once the agent is registered, notice the status and version
-45. Click the newly registered agent to reveal the **Traces**
+43. Select the registered Agent and notice the property bar on the right
+    1. Notice the new A2A urls from the Foundry Control plane for your agent
+    2. See the **Update status** options allowing you to block the agent through the Foundry Control plane
+44. Open the newly registered agent 
+    1. Select the **Traces** tab and open one of the calls
+    2. Explore the tools and details in this trace 
 
 ### Run evaluation in **Microsoft Foundry**
-47. Make sure you are in the new **Microsoft Foundry** portal
-48. Click on **Build** on top right
-49. Click on **Evaluations** on the left
-50. Click on the **Create** button on  top right
+45. Make sure you are in the new **Microsoft Foundry** portal
+46. Click on **Build** on top right
+47. Click on **Evaluations** on the left
+48. Click on the **Create** button on  top right
     1. You can use your **Dataset** from your "Agentic Content Factory" solution
     2. Go to Dev UI, scroll to **Social posts** and **Donwnload Evals.JSONL** or grab a sample file from your repo - Lab\sample-output
     3. Back in **Foundry** click **Upload new dataset**

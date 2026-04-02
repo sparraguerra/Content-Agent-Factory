@@ -17,24 +17,18 @@ Enter a topic (e.g. "Write a comprehensive Blog post about Azure Container Apps 
 Agents communicate via the A2A (Agent-to-Agent) protocol -- each exposes a /.well-known/agent.json card for discovery and a /a2a JSON-RPC endpoint for task submission. Each agent runs as a separate container on Azure Container Apps.
 
 ## Instructions
-**Please follow the instructor or the lab instructions below.**
+**In this lab, we first deploy the solution to Azure.**
 
 
 ### To get started 
-1. Open **Azure portal** from the shortcut on your desktop
-2. For login credentials - click the **"Resources"** tab on top of this lab manual
-3. You will need **username** and **TAP**
-4. Select to **Stay signed in**, no need to save your password
-5. Minimize the **Azure portal**
-6. Open the **Visual Studio Code**
+1. Open the **Visual Studio Code**
 7. Wait for the **Terminal** to initialize, or open it (Ctrl+`)
-8. Make sure you are in the **'C:\Users\LabUser\repos\mvp26-LAB015'** folder ( cd mvp26-LAB015 as needed)
-9.  **Pull the latest** updates with git pull from the LAB15 GitHub repository (full solution, source code, deployment scripts and documentation)
+9.  **Clone this repo** by running git pull https://github.com/jkalis-MS/Content-Agent-Factory
 10. **Login to Azure portal** from the terminal az login, login in the browser, close the tab and get back to VS Code
 11. In the VS Code Terminal **Create Azure resource group** az group create -n rg-mvp-lab -l westus3
 12. **Start the deployment** az deployment group create -g rg-mvp-lab -f infra/pre-rendered/bulk-lab-deploy.bicep
     1. Yellow notifications are ok
-    2. Your **labInstanceId** is  <Lab_Instance_ID>
+    2. As you **labInstanceId**, enter any 8 random digits (to guarantee unique name)
 13. Explore the project and architecture while the deployment is running (est. 6 minutes)
 
 ### To explore your deployment once done on **Azure portal**

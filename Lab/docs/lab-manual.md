@@ -21,21 +21,25 @@ Agents communicate via the A2A (Agent-to-Agent) protocol -- each exposes a /.wel
 
 
 ### To get started 
+
+There are many ways to run this solution - either run it locally or deploy to Azure. For Azure deployment you can use 'AZD UP' or follow steps 1-6 that are using pre-built container images.
+
 1. Open the **Visual Studio Code**
-7. Wait for the **Terminal** to initialize, or open it (Ctrl+`)
-9.  **Clone this repo** by running git pull https://github.com/jkalis-MS/Content-Agent-Factory
-10. **Login to Azure portal** from the terminal az login, login in the browser, close the tab and get back to VS Code
-11. In the VS Code Terminal **Create Azure resource group** az group create -n rg-mvp-lab -l westus3
-12. **Start the deployment** az deployment group create -g rg-mvp-lab -f infra/pre-rendered/bulk-lab-deploy.bicep
+2. Wait for the **Terminal** to initialize, or open it (Ctrl+`)
+3.  **Clone this repo** by running 'git pull https://github.com/jkalis-MS/Content-Agent-Factory'
+4. **Login to Azure portal** from the terminal 'az login', login in the browser, close the tab and get back to VS Code
+5. In the VS Code Terminal **Create Azure resource group** for example 'az group create -n rg-mvp-lab -l westus3'
+6. **Start the deployment** into the created resource grouop 'az deployment group create -g rg-mvp-lab -f infra/pre-rendered/bulk-lab-deploy.bicep'
     1. Yellow notifications are ok
-    2. As you **labInstanceId**, enter any 8 random digits (to guarantee unique name)
-13. Explore the project and architecture while the deployment is running (est. 6 minutes)
+    2. As your **labInstanceId**, enter any 8 random digits (to guarantee unique names of the resources)
+7. Explore the project and architecture while the deployment is running (est. 6 minutes)
 
 ### To explore your deployment once done on **Azure portal**
 
-15. Open the **Azure portal**
-16. Open the resource group **rg-mvp-lab** 
-    1. Note: *please ignore the rg-mvp-lab1 resource group, It has all the LAB infrastructure resources - like this VM that you are using right now*
+We open the app we deployed on Container App and use the Agent Content Factory to generate our first content.
+
+8. Open the **Azure portal**
+16. Open the resource group, e.g. **rg-mvp-lab** 
 17. Open the **aca<Lab_Instance_ID>-dev-ui** Container App
     1. Click on the **"Application Url"** on the top right corner in the Overview blade to open the Dev UI portal
 18. Your "frontpage" to the Agentic Content Factory opens
@@ -44,8 +48,9 @@ Agents communicate via the A2A (Agent-to-Agent) protocol -- each exposes a /.wel
 20. Start exploring results once they are available. You can also review the sample output in your repo - Lab\sample-output
 21. Click **Copy DevUI Config**
     
-### Observability **Application Insights**
-24.  Observability and **Application Insights**
+### Observability with **Application Insights**
+
+15.  Observability and **Application Insights**
     1. Open the **Application Insights** resource called **aca<Lab_Instance_ID>-appinsights** in your resource group **rg-mvp-lab**
     2. From the left navigation open **Investigate -> Agents (preview)** blade
     3. Explore all agent and tool calls and tokes use of your agents
@@ -53,7 +58,9 @@ Agents communicate via the A2A (Agent-to-Agent) protocol -- each exposes a /.wel
 25. Don't forget to click **'Explore in Grafana'** for even more details including traces (all the way at the bottom)
     
 ### Register agents in **Microsoft Foundry**
-27. Open the **Foundry project** resource in your in your resource group (default name **aca<Lab_Instance_ID>-project**)
+ This step allows you to manage, observe and evaluate your agents through Microsoft Foundry. Firstly, we need to ensure the user has appropriate permissions, then we can add AI Gateway and connect Application Insights. This is one-time set-up for all your agents. 
+
+16. Open the **Foundry project** resource in your in your resource group (default name **aca<Lab_Instance_ID>-project**)
 28. Add **'Azure AI Owner'** assignment to the current user
     1. Open **Access control (IAM)** blade on the left
     2. Click **Add -> Add role assignment**
@@ -102,7 +109,9 @@ Agents communicate via the A2A (Agent-to-Agent) protocol -- each exposes a /.wel
     2. Explore the tools and details in this trace 
 
 ### Run evaluation in **Microsoft Foundry**
-45. Make sure you are in the new **Microsoft Foundry** portal
+While you can set-up continuous evaluations once your agents are registered, we will run one-time evaluation of the generated social posts by this solution. This allows us to quickly explore the results.
+
+35. Make sure you are in the new **Microsoft Foundry** portal
 46. Click on **Build** on top right
 47. Click on **Evaluations** on the left
 48. Click on the **Create** button on  top right
@@ -115,4 +124,5 @@ Agents communicate via the A2A (Agent-to-Agent) protocol -- each exposes a /.wel
     7. Click **Next** to select **Criteria** or Evaluators (you can keep default)
     8.  Click **Next** and  **Submit** to run the evaluation
 51. Once done, you can review the results and formulate hypothesis on what can be changed in the "Agentic Content Factory" solution
-52. **That's it - Thanks for joining! PLEASE FILL THE LAB EVALUATIONS**
+
+**That's it - Thanks for joining! PLEASE share your feedback via the repo**
